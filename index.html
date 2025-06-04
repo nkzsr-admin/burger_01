@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BURGER STUDIO </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Dancing+Script:wght@600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ========= Fonts ========= */
+    .font-logo{font-family:'Cinzel',serif;}
+    .font-script{font-family:'Dancing Script',cursive;}
+    .font-body{font-family:'Noto Sans JP',sans-serif;}
+    .arc-text{display:inline-block;transform:perspective(400px) rotateX(15deg);letter-spacing:.15em}
+
+    /* ========= Slide base ========= */
+    .slide{position:relative;height:100vh;width:100vw;padding:0 3%;
+      display:flex;flex-direction:column;justify-content:center;align-items:center;}
+    .slide-center{flex-direction:column;text-align:center;}
+
+    /* ========= Nav + Pager (PC only) ========= */
+    .nav{position:absolute;top:50%;transform:translateY(-50%);
+      font-family:'Cinzel',serif;font-size:5rem;line-height:1;color:#34a853;
+      background:rgba(255,255,255,.7);backdrop-filter:blur(4px);
+      border-radius:9999px;padding:.08em .32em;box-shadow:0 4px 16px rgb(0 0 0 / .12);
+      transition:.2s;}
+    .nav:hover{scale:1.12;color:#1e7a38;}
+    .nav-left{left:1.1rem}.nav-right{right:1.1rem}
+    .pager{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);
+      font-family:'Cinzel',serif;font-size:1.4rem;letter-spacing:.12em;color:#0f5530;}
+
+    /* ========= MENU card ========= */
+    .menu-img{flex-shrink:0;width:18rem;}
+    .menu-img img{
+      width:100%;
+      aspect-ratio:3/2;   /* 横長長方形へ固定 (例: 18rem x 12rem) */
+      object-fit:cover;   /* はみ出す部分をトリミング */
+      border-radius:.5rem;
+      box-shadow:0 8px 20px rgb(0 0 0 / .15);
+    }
+    .menu-txt{max-width:28rem;}
+    .menu-title{font-size:2rem;color:#0f5530;}
+
+    /* -------- PC layout -------- */
+    @media(min-width:768px){
+      .slide{flex-direction:row;text-align:left;}
+      .slide-center{flex-direction:column;text-align:center;align-items:center;justify-content:center;}
+      .menu-img{width:22rem;margin-right:3rem;}
+      /* hide scrollbar */
+      main::-webkit-scrollbar{display:none}
+      main{-ms-overflow-style:none;scrollbar-width:none}
+    }
+
+    /* -------- Mobile tweaks -------- */
+    @media(max-width:767px){
+      .nav,.pager{display:none;}
+      .menu-slide {
+        height: auto;
+        padding: 2.5rem 3%;
+        flex-direction: column;      /* ← ★追加 */
+        align-items: center;         /* ← ★追加 */
+        text-align: center;          /* ← ★追加 */
+      }
+      .menu-img{width:10rem;margin-bottom:1rem;}
+      .menu-txt{max-width:100%;}
+    }
+  </style>
+</head>
+
+<body class="font-body text-gray-800 antialiased">
+
+<main class="md:flex md:h-screen md:w-[100vw] md:overflow-x-auto md:overflow-y-hidden md:snap-x md:snap-mandatory scroll-smooth">
+
+  <!-- 0/7 HERO -->
+  <section id="hero" class="slide slide-center md:flex-shrink-0 md:snap-start">
+    <p class="arc-text text-sm tracking-widest text-[#0f5530] mb-2">CHARCOAL&nbsp;GRILL</p>
+    <h1 class="font-logo text-6xl md:text-8xl text-[#0f5530] leading-none">THE</h1>
+    <p class="font-script text-4xl md:text-5xl text-[#0f5530] mt-2">&nbsp;Burger&nbsp;STUDIO</p>
+    <p class="mt-8 text-base md:text-lg leading-relaxed max-w-xl text-center">
+      那覇市にある手作りハンバーガーショップ。<br>パティは毎日手で捏ね、1 つ 1 つ丁寧に作っています。
+    </p>
+    <a href="#shop-info" class="nav nav-right">&gt;</a>
+    <div class="pager">0 / 7</div>
+  </section>
+
+  <!-- 1/7 SHOP INFO -->
+  <section id="shop-info" class="slide slide-center bg-gray-50 md:flex-shrink-0 md:snap-start">
+    <div class="space-y-8 max-w-lg">
+      <div>
+        <h2 class="font-logo text-2xl text-[#0f5530] mb-2">ADDRESS</h2>
+        <p>3-8-11&nbsp;Uebaru&nbsp;Naha-Shi&nbsp;Okinawa&nbsp;
+          <a href="https://maps.app.goo.gl/eB9fcR2XHgpSBc5R6" class="underline text-[#0f5530]" target="_blank" rel="noopener">MAP</a>
+        </p>
+      </div>
+      <div><h2 class="font-logo text-2xl text-[#0f5530] mb-2">TEL / FAX</h2><p>03-6419-7988</p></div>
+      <div>
+        <h2 class="font-logo text-2xl text-[#0f5530] mb-2">BUSINESS HOURS</h2>
+        <ul class="space-y-0.5 text-sm">
+          <li>TUE 11:30-15:00 / 18:00-20:00</li><li>WED 11:30-15:00 / 18:00-20:00</li>
+          <li>THU 11:30-15:00 / 18:00-20:00</li><li>FRI 11:30-15:00 / 18:00-20:00</li>
+          <li>SAT 11:30-15:00 / 18:00-20:00</li><li>SUN 11:30-19:00</li><li>MON Close</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-logo text-2xl text-[#0f5530] mb-2">INSTAGRAM</h2>
+        <a href="https://www.instagram.com/sora.nakaza" class="underline text-[#0f5530]" target="_blank" rel="noopener">@sora.nakaza</a>
+      </div>
+    </div>
+
+    <a href="#hero" class="nav nav-left">&lt;</a>
+    <a href="#menu-1" class="nav nav-right">&gt;</a>
+    <div class="pager">1 / 7</div>
+  </section>
+
+  <!-- 2/7 MENU 1 -->
+  <section id="menu-1" class="slide menu-slide md:flex-shrink-0 md:snap-start">
+    <figure class="menu-img">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80" alt="Hamburger">
+    </figure>
+    <div class="menu-txt space-y-3">
+      <h3 class="font-logo menu-title">HAMBURGER</h3>
+      <p class="text-sm text-gray-600">ハンバーガー</p>
+      <p>炭火で焼き上げたビーフ100%パティ（150 g）と新鮮野菜。定番の味をどうぞ。</p>
+    </div>
+
+    <a href="#shop-info" class="nav nav-left">&lt;</a>
+    <a href="#menu-2"   class="nav nav-right">&gt;</a>
+    <div class="pager">2 / 7</div>
+  </section>
+
+  <!-- 3/7 MENU 2 -->
+  <section id="menu-2" class="slide menu-slide md:flex-shrink-0 md:snap-start">
+    <figure class="menu-img">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80" alt="Hamburger">
+    </figure>
+    <div class="menu-txt space-y-3">
+      <h3 class="font-logo menu-title">HAMBURGER</h3>
+      <p class="text-sm text-gray-600">ハンバーガー</p>
+      <p>炭火で焼き上げたビーフ100%パティ（150 g）と新鮮野菜。定番の味をどうぞ。</p>
+    </div>
+
+    <a href="#menu-1" class="nav nav-left">&lt;</a>
+    <a href="#menu-3"   class="nav nav-right">&gt;</a>
+    <div class="pager">3 / 7</div>
+  </section>
+
+  <!-- 4/7 MENU 3 -->
+  <section id="menu-3" class="slide menu-slide md:flex-shrink-0 md:snap-start">
+    <figure class="menu-img">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80" alt="Hamburger">
+    </figure>
+    <div class="menu-txt space-y-3">
+      <h3 class="font-logo menu-title">HAMBURGER</h3>
+      <p class="text-sm text-gray-600">ハンバーガー</p>
+      <p>炭火で焼き上げたビーフ100%パティ（150 g）と新鮮野菜。定番の味をどうぞ。</p>
+    </div>
+
+    <a href="#menu-2" class="nav nav-left">&lt;</a>
+    <a href="#menu-4"   class="nav nav-right">&gt;</a>
+    <div class="pager">4 / 7</div>
+  </section>
+
+  <!-- 5/7 MENU 4 -->
+  <section id="menu-4" class="slide menu-slide md:flex-shrink-0 md:snap-start">
+    <figure class="menu-img">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80" alt="Hamburger">
+    </figure>
+    <div class="menu-txt space-y-3">
+      <h3 class="font-logo menu-title">HAMBURGER</h3>
+      <p class="text-sm text-gray-600">ハンバーガー</p>
+      <p>炭火で焼き上げたビーフ100%パティ（150 g）と新鮮野菜。定番の味をどうぞ。</p>
+    </div>
+
+    <a href="#menu-3" class="nav nav-left">&lt;</a>
+    <a href="#access"   class="nav nav-right">&gt;</a>
+    <div class="pager">5 / 7</div>
+  </section>
+
+  <!-- 6/7 ACCESS -->
+  <section id="access" class="slide slide-center bg-gray-50 md:flex-shrink-0 md:snap-start">
+    <h2 class="font-logo text-4xl text-[#0f5530] mb-8">ACCESS</h2>
+    <div class="max-w-5xl w-full grid md:grid-cols-2 gap-8">
+      <div class="rounded overflow-hidden shadow w-full h-72 md:h-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.626315286409!2d139.6978579156079!3d35.675915337104524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cbad8d58d03%3A0x679e0ad18dde1e5b!2zKomorebi!5e0!3m2!1sja!2sjp!4v0000000000000"
+                width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" class="rounded shadow object-cover w-full h-36 md:h-56" alt="">
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80" class="rounded shadow object-cover w-full h-36 md:h-56" alt="">
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80" class="rounded shadow object-cover w-full h-36 md:h-56" alt="">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" class="rounded shadow object-cover w-full h-36 md:h-56" alt="">
+      </div>
+    </div>
+
+    <a href="#menu-4" class="nav nav-left">&lt;</a>
+    <a href="#footer" class="nav nav-right">&gt;</a>
+    <div class="pager">6 / 7</div>
+  </section>
+
+  <!-- 7/7 FOOTER -->
+  <footer id="footer" class="slide slide-center bg-[#0f5530] text-white md:flex-shrink-0 md:snap-start">
+    <p class="font-script text-3xl mb-6">Thank&nbsp;you&nbsp;for&nbsp;coming&nbsp;by!</p>
+    <nav class="space-x-8 text-lg mb-6">
+      <a href="#menu-1" class="underline">Menu</a>
+      <a href="#shop-info" class="underline">Info</a>
+      <a href="https://www.instagram.com/sora.nakaza" class="underline" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <p class="text-xs tracking-wide">© BURGER STUDIO All&nbsp;Rights&nbsp;Reserved.</p>
+
+    <a href="#access" class="nav nav-left text-white hover:text-lime-200">&lt;</a>
+    <a href="#hero"   class="nav nav-right text-white hover:text-lime-200">&laquo;</a>
+    <div class="pager text-white">7 / 7</div>
+  </footer>
+
+</main>
+</body>
+</html>
